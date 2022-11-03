@@ -1,0 +1,8 @@
+little_mermaid = 3
+brother_bear = 5
+hercules = 1
+movies = [little_mermaid, brother_bear, hercules]
+for item in movies:
+    item *= 3
+    print('$', item)
+print(movies)
