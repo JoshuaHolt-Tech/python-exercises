@@ -276,13 +276,15 @@ def odd_user_num():
     while True:
         try:
             user_num = int(input("Please enter an odd number between 1 and 50. \n"))
-            break
+            if (user_num < 1) or (user_num > 50) or ((user_num % 2) == 0):
+                print("You did not follow directions. \n")
+            else:
+                break
         except ValueError:
-            user_num = int(input("Oops, that was not a number!\nP lease enter an odd number between 1 and 50. \n"))
+            print("Oops, that was not a number! \n")
 
 # Instruction validation for user number selection:
-    while user_num < 1 or user_num > 50 or user_num % 2 == 0:
-        user_num = int(input("Try again. Please enter an odd number between 1 and 50. \n"))
+    
     print(f'Good job! Lets count odd numbers but skip {user_num}: ')
     i = 1
     
