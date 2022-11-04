@@ -3,8 +3,9 @@
 """
 Created on Thu Nov 3 14:38:01 2022
 
-@author: Josh Holt
-"""
+@author: Josh Holt"""
+
+""" Un-comment the function call to test individual functions."""
 
 #Conditional Basics
 
@@ -270,21 +271,22 @@ Here is an odd number: 49
 Fizzbuzz
 """
 def odd_user_num():
-# Number validation  
+
+# Int validation for user input
     while True:
         try:
             user_num = int(input("Please enter an odd number between 1 and 50. \n"))
             break
         except ValueError:
             user_num = int(input("Oops, that was not a number!\nP lease enter an odd number between 1 and 50. \n"))
-    
+
+# Instruction validation for user number selection:
     while user_num < 1 or user_num > 50 or user_num % 2 == 0:
         user_num = int(input("Try again. Please enter an odd number between 1 and 50. \n"))
     print(f'Good job! Lets count odd numbers but skip {user_num}: ')
     i = 1
     
-# This is the logic to count up to the number and skip selected numbers.
-    
+# This is the logic to count up to the number and skip selected numbers.   
     while i < 51:
         if i == user_num:
             print(f'Yikes! Skipping number: {user_num}')
@@ -295,8 +297,10 @@ def odd_user_num():
         elif i % 2 == 0:
             i += 1
             continue
-    print('Fizzbuzz')
-odd_user_num()
+    print('Fizzbuzz') # Not required but present in the example.
+#odd_user_num()
+
+
 """
 One of the most common interview questions for entry-level programmers is the FizzBuzz test. 
 Developed by Imran Ghory, the test is designed to test basic looping and conditional 
