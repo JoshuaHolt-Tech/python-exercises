@@ -285,7 +285,9 @@ def odd_user_num():
     print('Fizzbuzz')
 #odd_user_num()
 """
-One of the most common interview questions for entry-level programmers is the FizzBuzz test. Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
+One of the most common interview questions for entry-level programmers is the FizzBuzz test. 
+Developed by Imran Ghory, the test is designed to test basic looping and conditional 
+logic skills.
 
 Write a program that prints the numbers from 1 to 100.
 For multiples of three print "Fizz" instead of the number
@@ -293,7 +295,22 @@ For the multiples of five print "Buzz".
 For numbers which are multiples of both three and five print "FizzBuzz".
 Display a table of powers.
 """
-
+def fizz_buzz():
+    i = 0
+    while i <= 100:
+        if i % 15 == 0:
+            print("FizzBuzz")
+            i += 1
+        elif i % 3 == 0:
+            print("Fizz")
+            i += 1  
+        elif i % 5 == 0:
+            print("Buzz")
+            i += 1
+        else:
+            print(i)
+            i += 1
+#fizz_buzz()
 
 
 
@@ -320,12 +337,23 @@ number | squared | cubed
 5      | 25      | 125
 
 """
+def table_num():
+    num = int(input("Please enter an integer: \n"))
+    i = int(1)
+    print('number | squared | cubed')
+    print('-------| ------- | -----')
+    while i <= num:
+        i_2 = i ** 2
+        i_3 = i ** 3
 
+        print(f'{i: 6} | {i_2: 8}| {i_3: 5}')
+        i += 1
 
-
+#table_num()
 
 
 #Bonus: Research python's format string specifiers to align the table
+# Check
 
 """
 Convert given number grades into letter grades.
@@ -343,18 +371,80 @@ C : 79 - 67
 D : 66 - 60
 F : 59 - 0
 """
+def grades():
+    letter_grade = str()
+    grade = int(input("Please provide a whole number grade from 0 - 100\n"))
+    while type(grade) != int or grade < 0 or grade > 100:
+        grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
+    if grade >= 88:
+        letter_grade = "A"
+    elif grade >= 80:
+        letter_grade = "B"
+    elif grade >= 67:
+        letter_grade = "C"
+        print("Try explaining the material to a five year old.")
+    elif grade >= 60:
+        letter_grade = "D"
+        print("Start with the base concepts and explain them in simple terms.")
+    else:
+        letter_grade = "F"
+        print("The only real failure is quitting.")
+    print(f'You recieved a grade of {letter_grade}')
 
 
-
-
+#grades()
 """
 
 Bonus
 
 Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
-Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+"""
 
-Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+
+def grades_bonus():
+    letter_grade = str()
+    grade = int(input("Please provide a whole number grade from 0 - 100\n"))
+    while type(grade) != int or grade < 0 or grade > 100:
+        grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
+    if grade >= 98:
+        letter_grade = "A+"
+    elif grade >= 90:
+        letter_grade = "A"
+    elif grade >= 88:
+        letter_grade = "A-"
+    elif grade >= 86:
+        letter_grade = "B+"
+    elif grade >= 82:
+        letter_grade = "B"
+    elif grade >= 80:
+        letter_grade = "B-"   
+    elif grade >= 77:
+        letter_grade = "C+"
+        print("Try explaining the material to a five year old.")
+    elif grade >= 69:
+        letter_grade = "C"
+        print("Try explaining the material to a five year old.")
+    elif grade >= 67:
+        letter_grade = "C-"
+        print("Try explaining the material to a five year old.")
+
+# Lets be honest, at this point + and - don't matter.
+    elif grade >= 60:
+        letter_grade = "D"
+        print("Start with the base concepts and explain them in simple terms.")
+    else:
+        letter_grade = "F"
+        print("The only real failure is quitting.")
+    print(f'You recieved a grade of {letter_grade}')
+#grades_bonus()
+
+"""
+Create a list of dictionaries where each dictionary represents a book that you have read. 
+Each dictionary in the list should have the keys title, author, and genre. 
+Loop through the list and print out information about each book.
+
+Prompt the user to enter a genre, then loop through your books list and print out the t
+itles of all the books in that genre.
 """
 
 
