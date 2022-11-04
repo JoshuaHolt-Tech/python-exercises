@@ -274,6 +274,8 @@ Fizzbuzz
 """
 def odd_user_num():
 
+#Adam's code is much cleaner    
+
 # Int validation for user input
     while True:
         try:
@@ -293,6 +295,8 @@ def odd_user_num():
 # This is the logic to count up to the number and skip selected numbers.   
     while i < 51:
         if i == user_num:
+# If a print statment wasn't required the we could use 'continue'
+# but even then continue isn't required, we could skip the print.
             print(f'Yikes! Skipping number: {user_num}')
             i += 1
         elif i % 2 != 0:
@@ -300,7 +304,7 @@ def odd_user_num():
             i += 1
         elif i % 2 == 0:
             i += 1
-            continue
+
     print('Fizzbuzz') # Not required but present in the example.
 #odd_user_num()
 
@@ -364,10 +368,8 @@ def table_num():
     print('number | squared | cubed')
     print('-------| ------- | -----')
     while i <= num:
-        i_2 = i ** 2
-        i_3 = i ** 3
 
-        print(f'{i: 6} | {i_2: 8}| {i_3: 5}')
+        print(f'{i: 6} | {i ** 2: 8}| {i ** 3: 5}')
         i += 1
 
 #table_num()
@@ -394,24 +396,31 @@ F : 59 - 0
 """
 def grades():
     letter_grade = str()
-    grade = int(input("Please provide a whole number grade from 0 - 100\n"))
-    while type(grade) != int or grade < 0 or grade > 100:
-        grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
-    if grade >= 88:
-        letter_grade = "A"
-    elif grade >= 80:
-        letter_grade = "B"
-    elif grade >= 67:
-        letter_grade = "C"
-        print("Try explaining the material to a five year old.")
-    elif grade >= 60:
-        letter_grade = "D"
-        print("Start with the base concepts and explain them in simple terms.")
-    else:
-        letter_grade = "F"
-        print("The only real failure is quitting.")
-    print(f'You recieved a grade of {letter_grade}')
 
+    while True: 
+        
+        grade = int(input("Please provide a whole number grade from 0 - 100\n"))
+        while type(grade) != int or grade < 0 or grade > 100:
+            grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
+            
+        if grade >= 88:
+            letter_grade = "A"
+        elif grade >= 80:
+            letter_grade = "B"
+        elif grade >= 67:
+            letter_grade = "C"
+            print("Try explaining the material to a five year old.")
+        elif grade >= 60:
+            letter_grade = "D"
+            print("Start with the base concepts and explain them in simple terms.")
+        else:
+            letter_grade = "F"
+            print("The only real failure is quitting.")
+        print(f'You recieved a grade of {letter_grade}')
+        
+        person_input = input('Do you want to continue? y/n?')
+        if person_input.lower().strip() == 'n':
+            break
 
 #grades()
 """
@@ -424,39 +433,48 @@ Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
 
 def grades_bonus():
     letter_grade = str()
-    grade = int(input("Please provide a whole number grade from 0 - 100\n"))
-    while type(grade) != int or grade < 0 or grade > 100:
-        grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
-    if grade >= 98:
-        letter_grade = "A+"
-    elif grade >= 90:
-        letter_grade = "A"
-    elif grade >= 88:
-        letter_grade = "A-"
-    elif grade >= 86:
-        letter_grade = "B+"
-    elif grade >= 82:
-        letter_grade = "B"
-    elif grade >= 80:
-        letter_grade = "B-"   
-    elif grade >= 77:
-        letter_grade = "C+"
-        print("Try explaining the material to a five year old.")
-    elif grade >= 69:
-        letter_grade = "C"
-        print("Try explaining the material to a five year old.")
-    elif grade >= 67:
-        letter_grade = "C-"
-        print("Try explaining the material to a five year old.")
 
-# Lets be honest, at this point + and - don't matter.
-    elif grade >= 60:
-        letter_grade = "D"
-        print("Start with the base concepts and explain them in simple terms.")
-    else:
-        letter_grade = "F"
-        print("The only real failure is quitting.")
-    print(f'You recieved a grade of {letter_grade}')
+    while True:
+        
+        grade = int(input("Please provide a whole number grade from 0 - 100\n"))
+        while type(grade) != int or grade < 0 or grade > 100:
+            grade = int(input("You did not follow instructions, minus 3 points. Try again.\n"))
+        
+        if grade >= 98:
+            letter_grade = "A+"
+        elif grade >= 90:
+            letter_grade = "A"
+        elif grade >= 88:
+            letter_grade = "A-"
+        elif grade >= 86:
+            letter_grade = "B+"
+        elif grade >= 82:
+            letter_grade = "B"
+        elif grade >= 80:
+            letter_grade = "B-"   
+        elif grade >= 77:
+            letter_grade = "C+"
+            print("Try explaining the material to a five year old.")
+        elif grade >= 69:
+            letter_grade = "C"
+            print("Try explaining the material to a five year old.")
+        elif grade >= 67:
+            letter_grade = "C-"
+            print("Try explaining the material to a five year old.")
+    
+    # Lets be honest, at this point + and - don't matter.
+        elif grade >= 60:
+            letter_grade = "D"
+            print("Start with the base concepts and explain them in simple terms.")
+        else:
+            letter_grade = "F"
+            print("The only real failure is quitting.")
+        print(f'You recieved a grade of {letter_grade}')
+        
+        person_input = input('Do you want to continue? y/n?')
+        if person_input.lower().strip() == 'n':
+            break
+
 #grades_bonus()
 
 """
@@ -467,6 +485,8 @@ Loop through the list and print out information about each book.
 Prompt the user to enter a genre, then loop through your books list and print out the t
 itles of all the books in that genre.
 """
+
+# Adam's code is much better.
 def read_books():
     # This works but isn't pretty.
     completed_books = [{'title':'naked statistics', 'author':'Charles Wheelan', 'genre':'nonfiction'},{'title':'The Gods Themselves','author':'Isaac Asimov', 'genre':'science fiction'}]
