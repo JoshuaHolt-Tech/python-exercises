@@ -12,7 +12,7 @@ Created on Thu Nov 3 14:38:01 2022
 #prompt the user for a day of the week, print out whether the day is Monday or not
 def day_of_week():
     day_of_week = input("What day of the week is it? Please type the whole word.")
-    if day_of_week.lower() == "monday":
+    if day_of_week.strip().lower() == "monday":
         print('Happy Monday!')
     else:
         print(f'Today is: {day_of_week}')
@@ -22,15 +22,13 @@ def day_of_week():
 #prompt the user for a day of the week, print out whether the day is a weekday or a weekend
 
 def week_day():
-    day_of_week = input("What day of the week is it? Please type the whole word.")
-    if day_of_week.lower() == "saturday" or day_of_week.lower() == "sunday":
+    day_of_week = input("What day of the week is it? Please type the whole word. \n")
+    if day_of_week.strip().lower() == "saturday" or day_of_week.strip().lower() == "sunday":
         print('Happy weekend!')
     else:
         print("Its a weekday, get back to work.")
 
 #week_day()
-
-
 
 #create variables and make up values for
 
@@ -191,6 +189,10 @@ Create a for loop that uses print to create the output shown below.
 88888888
 999999999
 """
+#Adam's code is cleaner: 
+#for i in range(1, 10):
+    #print(i * str(i))
+
 def num_mid():
     i = 1
     while i < 10:
@@ -465,6 +467,61 @@ Loop through the list and print out information about each book.
 Prompt the user to enter a genre, then loop through your books list and print out the t
 itles of all the books in that genre.
 """
+def read_books():
+    # This works but isn't pretty.
+    completed_books = [{'title':'naked statistics', 'author':'Charles Wheelan', 'genre':'nonfiction'},{'title':'The Gods Themselves','author':'Isaac Asimov', 'genre':'science fiction'}]
+    for item in completed_books:
+        print(item.keys(), item.values())
+    
+    genre_search = input('Enter a genre to search for: \n')
+    
+    for item in completed_books:
+        if item['genre'] == genre_search:
+            print(item.get('title'))
+
+read_books()  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
