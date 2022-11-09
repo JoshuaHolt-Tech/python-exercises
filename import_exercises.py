@@ -89,7 +89,7 @@ Using this data, write some code that calculates and outputs the following infor
 
 
 for item in json_file:
-    if item.get('isActive') == True:
+    if item.get('isActive') == True: # Change 'True' to 'False' for inactive users.
         count += 1
     
     
