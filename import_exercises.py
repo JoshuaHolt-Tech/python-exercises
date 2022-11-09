@@ -84,6 +84,7 @@ Your code should produce a list of dictionaries.
 Using this data, write some code that calculates and outputs the following information:
 """
     #Total number of users = 19
+        # Easiest way = len(json_file)
     #Number of active users = 9
     #Number of inactive users = 10
 
@@ -106,20 +107,23 @@ max_due = float()
 
 
 for item in json_file:
-    if item.get('isActive') == False:
-        amount_due = item.get('balance').replace('$','').replace(',', '')
-        amount_due = float(amount_due)
-        if amount_due < min_due or count == 0:
-            min_due = amount_due
-            min_user = item.get('name')
+    
+    
+    amount_due = item.get('balance').replace('$','').replace(',', '')
+    amount_due = float(amount_due)
+    
+    
+    if amount_due < min_due or count == 0:
+        min_due = amount_due
+        min_user = item.get('name')
 
-        if amount_due > max_due:
-            max_due = amount_due
-            max_user = item.get('name')
+    if amount_due > max_due:
+        max_due = amount_due
+        max_user = item.get('name')
 
-        
-        total_due += amount_due
-        count += 1
+    
+    total_due += amount_due
+    count += 1
 
 avg_due = total_due/count        
 
