@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#if __name__ == '__main__':
+   
 """
 Created on Fri Nov  4 09:07:28 2022
 
@@ -13,6 +15,9 @@ Define a function named is_two.
 -Otherwise False.
 """
 def is_two(item):
+    """
+    This function accepts int or str 2 and returns True, otherwise False.
+    """
     if item == 2 or item == '2':
         return True
     else:
@@ -25,6 +30,9 @@ Define a function named is_vowel.
 -Otherwie False.
 """
 def is_vowel(item):
+    """
+    Returns True if a vowel is passed into the function.
+    """
     lst = []
     vowels = ['a','e','i','o','u','A','E','I','O','U']
     if type(item) != str:
@@ -48,7 +56,9 @@ Define a function named is_consonant.
 
 """
 def is_consonant(item1):
-
+    """
+    
+    """
     if isinstance(item1, str) == False:
         return False
     elif item1.isalpha() == False:
@@ -173,18 +183,17 @@ return a valid python identifier, that is:
 """
 def normalize_name(input_str):
     input_str = input_str.lower().strip()
-    invalid_id = ['!','#','@','%','$']
     return_str = ""
     for item in input_str:
         if item == " ":
             return_str += '_'
-        elif item in invalid_id:
+        elif item.isalnum() == False:
             continue
         else:
             return_str += item
-    return print(return_str)
+    return return_str
 
-#normalize_name('@gimD %fa$Ct')
+#print(normalize_name('@gimD %fa$Ct'))
 
 """
 Write a function named cumulative_sum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
@@ -243,7 +252,8 @@ It should accept a spreadsheet column name, and return the index number of the c
     col_index('B') returns 2
     col_index('AA') returns 27
 """
-#Brute force is having a dictionary/list to return the index. Be lazy.
+# Brute force is having a dictionary/list to return the index. 
+# Be lazy.
 def col_index():
     pass
 
