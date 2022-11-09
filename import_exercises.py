@@ -78,35 +78,6 @@ json_file = json.load(open('profiles.json'))
 #print(json_file[2].keys())
 
 count = 0
-total_due = float()
-min_due = float(400000) #This can't be set to zero or it won't find the lowest.
-max_due = float()
-
-
-
-for item in json_file:
-    if item.get('isActive') == False:
-        amount_due = item.get('balance').replace('$','').replace(',', '')
-        amount_due = float(amount_due)
-        if amount_due < min_due:
-            min_due = amount_due
-            min_user = item.get('name')
-
-        if amount_due > max_due:
-            max_due = amount_due
-            max_user = item.get('name')
-
-        
-        total_due += amount_due
-        count += 1
-
-avg_due = total_due/count        
-
-print("Everyone owes: $", round(total_due, 2))
-print("The average due is: $", round(avg_due, 2))
-print("The max balance due is: $", round(max_due, 2), ' from', max_user)
-print("The min balance due is: $", round(min_due, 2), ' from', min_user)
-
 
 """
 Your code should produce a list of dictionaries. 
@@ -122,8 +93,6 @@ for item in json_file:
         count += 1
     
     
-    
-    
     #Grand total of balances for all users = $ 29,415.28
     #Average balance per user = $2,941.53
     #User with the lowest balance Avery Flynn - $1214.10
@@ -132,16 +101,15 @@ for item in json_file:
 # This code was used to find the above information.
 count = 0
 total_due = float()
-min_due = float(400000)
+min_due = float()
 max_due = float()
 
 
 for item in json_file:
     if item.get('isActive') == False:
-        print(item.get('name'), 'owes: ', item.get('balance'))
+        amount_due = item.get('balance').replace('$','').replace(',', '')
         amount_due = float(amount_due)
-        
-        if amount_due < min_due:
+        if amount_due < min_due or count == 0:
             min_due = amount_due
             min_user = item.get('name')
 
@@ -157,8 +125,8 @@ avg_due = total_due/count
 
 print("Everyone owes: $", round(total_due, 2))
 print("The average due is: $", round(avg_due, 2))
-print("The max balance due is: $", round(max_due, 2), ' from', max_user)
-print("The min balance due is: $", round(min_due, 2), ' from', min_user)
+print("The max balance due is: \n $", round(max_due, 2), ' from', max_user)
+print("The min balance due is: \n $", round(min_due, 2), ' from', min_user)
 
 
 
@@ -184,6 +152,6 @@ for item in json_file:
         if thing.isnumeric() == True:
             total_unread += int(thing)
 
-print(total_unread)
+print("Total unread messages: ", total_unread)
 
 
